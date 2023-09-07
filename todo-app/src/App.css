@@ -1,38 +1,59 @@
-.App {
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+.App{
   text-align: center;
+  background-color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button:hover{
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.inputContainer{
+  padding: 8px
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inputContainer>input{
+  padding: 5px;
+  margin-right: 5px;
+}
+.inputContainer>button{
+  padding: 5px;
+  width: 80px;
+  background-color: gray;
+}
+
+.inputContainer>button:hover{
+  padding: 5px;
+  width: 80px;
+  background-color: rgb(77, 76, 76);
+  color: #fff;
+  transition: .5s;
+}
+
+.tasksContainer{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.taskCard{
+  background-color: rgb(42, 42, 42);
+  color: #fff;
+  padding: 20px;
+  min-height: 150px;
+  border-radius: 20px;
+}
+
+.btnContainer{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  padding: 8px;
+  margin: 5px;
+  gap: 10px;
 }
