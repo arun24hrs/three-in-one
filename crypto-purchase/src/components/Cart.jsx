@@ -16,7 +16,7 @@ const Cart = ({cartData}) => {
                 </tr>
                 {cartData && cartData.map((el)=>{
                     return <tr key={el.currency}>
-                        <td></td>
+                        <td>{el.id}</td>
                         <td>{el.currency}</td>
                         <td>{el.price}</td>
                         <td>{el.total}</td>
