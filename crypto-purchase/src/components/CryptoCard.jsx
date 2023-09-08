@@ -3,7 +3,7 @@ import "../App.css";
 const CryptoCard = ({ currency, price, setData, cartData }) => {
   const [visible, setVisible] = React.useState(false);
   const [quantity, setQuantity] = React.useState(null);
-  const [id, setId] = React.useState(1);
+
 
   const handleQuantity = () => {
     setVisible(!visible);
@@ -17,8 +17,8 @@ const CryptoCard = ({ currency, price, setData, cartData }) => {
       window.alert(`Please enter a quantity`);
     } else {
         let total = +price * +quantity
-      setData([...cartData, { id, currency, price, total }])
-      setId((prev)=> prev+1)
+      setData([...cartData, { currency, price, total }])
+      
     }
   };
 
