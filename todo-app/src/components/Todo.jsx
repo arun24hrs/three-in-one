@@ -51,7 +51,7 @@ console.log(todos)
     //       body: JSON.stringify({status: newStatus})
     //   })
     //   getTodos()
-
+    setLoading(true)
     let data = todos && todos.map((el)=> {
         if(el.id == id){
         el.status = newStatus
@@ -59,25 +59,26 @@ console.log(todos)
         return el;
     })
     setTodos(data)
+    setLoading(false)
     }
   
     const handleDelete = async(id) => {
     //   await fetch(`http://localhost:8000/tasks/${id}`,{
     //       method: "DELETE",
     //   })
-
+    setLoading(true)
     const data = todos.filter((el)=> el.id !== id)
         setTodos(data)
+        setLoading(false)
     }
 
-    React.useEffect(()=> {
-    },[todos])
     
   return (
     <div className='todoApp'>
         <h1 style={{color: "white", padding: "20px"}}>Todo App</h1>
         <Input handleTaskAdd={handleTaskAdd} todos={todos}/>
-        {loading && <h3>...loading</h3>}
+        <div style={{color: "#fff"}}>{loading && <h3>...loading</h3>}</div>
+        <div style={{color: "#fff"}}>{todos.length===0 ? "No tasks yet." : " "}</div>
         <div className='tasksContainer'>
                 {todos.map((task)=>{
                     return <TodosDisplay key={task.id}
