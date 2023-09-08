@@ -4,6 +4,26 @@
       "task": "Complete Assignment",
       "status": true,
       "id": 2
+    },
+    {
+      "task": "Prepare for interview",
+      "status": false,
+      "id": 3
+    },
+    {
+      "task": "Learn Python",
+      "status": false,
+      "id": 4
+    },
+    {
+      "task": "Complete projects",
+      "status": false,
+      "id": 5
+    },
+    {
+      "task": "Find bugs in current app",
+      "status": false,
+      "id": 6
     }
   ]
 }

@@ -13,54 +13,65 @@ console.log(todos)
     const handleTaskAdd = (task) => {
         setLoading(true);
         const newTask = {
+            id: Date.now(),
             task,
             status: false
         }
-        postTodos(newTask);
+        // postTodos(newTask);
+        setTodos([...todos, newTask])
         setLoading(false);
     }
 
-    const getTodos = async() => {
-        setLoading(true)
-        let todoData = await fetch('http://localhost:8000/tasks');
-        todoData = await todoData.json();
-        setTodos(todoData);
-        setLoading(false);
-    }
+    // const getTodos = async() => {
+    //     setLoading(true)
+    //     let todoData = await fetch('http://localhost:8000/tasks');
+    //     todoData = await todoData.json();
+    //     setTodos(todoData);
+    //     setLoading(false);
+    // }
 
-    const postTodos = async(todoTask) => {
-        await fetch('http://localhost:8000/tasks',{
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(todoTask)
-        })
-        getTodos();
+    // const postTodos = async(todoTask) => {
+    //     await fetch('http://localhost:8000/tasks',{
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(todoTask)
+    //     })
+    //     getTodos();
         
-    }
+    // }
 
-    const handleToggle = async(id, newStatus) => {
-        await fetch(`http://localhost:8000/tasks/${id}`,{
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({status: newStatus})
-      })
-      getTodos()
+    const handleToggle = (id, newStatus) => {
+    //     await fetch(`http://localhost:8000/tasks/${id}`,{
+    //       method: "PATCH",
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       },
+    //       body: JSON.stringify({status: newStatus})
+    //   })
+    //   getTodos()
+
+    let data = todos && todos.map((el)=> {
+        if(el.id == id){
+        el.status = newStatus
+        }
+        return el;
+    })
+    setTodos(data)
     }
   
     const handleDelete = async(id) => {
-      await fetch(`http://localhost:8000/tasks/${id}`,{
-          method: "DELETE",
-      })
-      getTodos();
+    //   await fetch(`http://localhost:8000/tasks/${id}`,{
+    //       method: "DELETE",
+    //   })
+
+    const data = todos.filter((el)=> el.id !== id)
+        setTodos(data)
     }
 
     React.useEffect(()=> {
-        getTodos();
-    },[])
+    },[todos])
     
   return (
     <div className='todoApp'>

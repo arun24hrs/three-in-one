@@ -7,7 +7,8 @@
 
 .App{
   text-align: center;
-  background-color: black;
+  background-color: rgb(20, 20, 20);
+  min-height: 100vh;
 }
 
 button:hover{
@@ -25,15 +26,18 @@ button:hover{
 .inputContainer>button{
   padding: 5px;
   width: 80px;
-  background-color: gray;
+  background-color: rgb(86, 86, 86);
+  border-radius: 5px;
 }
 
 .inputContainer>button:hover{
   padding: 5px;
   width: 80px;
-  background-color: rgb(77, 76, 76);
+  background-color: rgb(39, 39, 39);
   color: #fff;
+  border-radius: 10px;
   transition: .5s;
+
 }
 
 .tasksContainer{
@@ -56,4 +60,31 @@ button:hover{
   padding: 8px;
   margin: 5px;
   gap: 10px;
+}
+button{
+  padding: 5px;
+  border: 0px;
+}
+.actionBtn:hover{
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+#deleteBtn{
+  background-color: rgb(244, 41, 41);
+   padding: 5px
+}
+#deleteBtn:hover{
+  background-color: red;
+  color: #fff;
+}
+
+#toggleBtn{
+  background-color: rgb(45, 45, 246);
+  padding: "5px"
+}
+
+#toggleBtn:hover{
+  background-color: rgb(20, 20, 241);
+  color: #fff;
 }
